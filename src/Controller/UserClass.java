@@ -7,16 +7,18 @@ public class UserClass {
     private String email;
     private String difficultyGame1;
     private int levelGame1;
+    private String difficultyGame3;
     
     //Inserire difficoltà e livello registrato degli alti giochi
 
-    public UserClass(int ID, String username, String password, String email, String difficultyGame1, int levelGame1) {
+    public UserClass(int ID, String username, String password, String email, String difficultyGame1, int levelGame1, String difficultyGame3) {
     	this.ID = ID;
     	this.username = username;
     	this.password = password;
         this.email = email;
         this.difficultyGame1 = difficultyGame1;
         this.levelGame1 = levelGame1;
+        this.difficultyGame3 = difficultyGame3;
     }
     
     public int getID() {
@@ -61,5 +63,13 @@ public class UserClass {
 
     public void setLevelGame1(int level) {
         this.levelGame1 = level;
+    }
+
+    public String getDifficultyGame3() {
+        return difficultyGame3;
+    }
+
+    public void setDifficultyGame3(String difficultyGame3) {
+        this.difficultyGame3 = difficultyGame3;
     }
 }

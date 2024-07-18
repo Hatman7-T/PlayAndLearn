@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import logicPuzzleSolver.Data;
 
 public class UserController extends SceneController {
 	
@@ -73,7 +74,8 @@ public class UserController extends SceneController {
     								UserSession.currentUser.getPassword()+";"+
     								UserSession.currentUser.getEmail()+";"+
     								UserSession.currentUser.getDifficultyGame1()+";"+
-    								UserSession.currentUser.getLevelGame1(); //Inserire difficolta e livelli degli altri gioca
+    								UserSession.currentUser.getLevelGame1() + ";" +
+									UserSession.currentUser.getDifficultyGame3(); //Inserire difficolta e livelli degli altri gioca
     	List<String> lines = Files.readAllLines(Paths.get("src/DB/UserDB.csv"));
     	int idToUpdate = UserSession.currentUser.getID();
 		boolean updated = false;
@@ -129,6 +131,11 @@ public class UserController extends SceneController {
 		}
 		switchToScene(e, selectedLevel);
 	}
-    
+
+	@FXML
+	public void startGame3(ActionEvent e) throws IOException {
+        Data.INSTANCE.difficulty = UserSession.currentUser.getDifficultyGame3();
+        switchToScene(e, "logicPuzzleSolver/scenes/exercise.fxml");
+	}
     //Inserire funzioni per startare gli altri giochi
 }
