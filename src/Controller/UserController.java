@@ -1,0 +1,132 @@
+package Controller;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
+
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+
+public class UserController extends SceneController {
+	
+    @FXML
+    private Label welcomeLabel;
+    
+    @FXML
+    private ProgressBar progressBar1;
+	
+    @FXML
+    public void initialize() {
+        updateWelcomeLabel();
+        updateProgressBar();
+    }
+    
+	private void updateWelcomeLabel() {
+		if (UserSession.currentUser != null) {
+            welcomeLabel.setText("Benvenuto " + UserSession.currentUser.getUsername());
+            welcomeLabel.setVisible(true);
+        }
+	}
+	
+	private void updateProgressBar() {
+		int level = UserSession.currentUser.getLevelGame1();
+		String difficulty = UserSession.currentUser.getDifficultyGame1();
+		double progress = 0.11 * level;
+		switch(difficulty) {
+			case "Medium":
+				progress *= 2; 
+				break;
+				
+			case "Hard":
+				progress *= 3;
+				break;
+		}
+		if(progress == 0.99)
+			progress = 1;
+		else if(progress == 0.11)
+			progress = 0;
+		progressBar1.setStyle("-fx-accent: #08d12d;");
+		progressBar1.setProgress(progress);
+	}
+	
+	@FXML
+	public void reset(ActionEvent e) throws IOException{
+		UserSession.currentUser.setDifficultyGame1("Easy");
+		UserSession.currentUser.setLevelGame1(1);
+		switchToScene(e, "/Scenes/UserScene.fxml");
+		//Aggiungere reset valori degli altri giochi
+	}
+	
+    @FXML
+	public void exit(ActionEvent e) throws IOException {
+    	String newUserInformation = UserSession.currentUser.getID()+";"+
+    								UserSession.currentUser.getUsername()+";"+
+    								UserSession.currentUser.getPassword()+";"+
+    								UserSession.currentUser.getEmail()+";"+
+    								UserSession.currentUser.getDifficultyGame1()+";"+
+    								UserSession.currentUser.getLevelGame1(); //Inserire difficolta e livelli degli altri gioca
+    	List<String> lines = Files.readAllLines(Paths.get("src/DB/UserDB.csv"));
+    	int idToUpdate = UserSession.currentUser.getID();
+		boolean updated = false;
+		for (int i = 0; i < lines.size(); i++) {
+            String[] data = lines.get(i).split(";");
+            if (Integer.parseInt(data[0]) == idToUpdate) {
+                lines.set(i, newUserInformation);
+                updated = true;
+                break;
+            }
+        }
+		if (updated) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/DB/UserDB.csv"))) {
+                for (String line : lines) {
+                    writer.write(line);
+                    writer.newLine();
+                }
+            }
+        } else {
+            System.out.println("ID not found.");
+        }
+		switchToScene(e, "/Scenes/WelcomeScene.fxml");
+	}
+    
+    @FXML
+	public void startGame1(ActionEvent e) throws IOException {
+		String selectedLevel = "/exercise1Folder/";
+		switch(UserSession.currentUser.getDifficultyGame1()) {
+			case "Easy":
+				selectedLevel += "Easy/";
+				break;
+			case "Medium":
+				selectedLevel += "Medium/";
+				break;
+			case "Hard":
+				selectedLevel += "Hard/";
+				break;
+			default:
+				break;
+		}
+		switch(UserSession.currentUser.getLevelGame1()) {
+			case 1:
+				selectedLevel += "Exercise1.fxml";
+				break;
+			case 2:
+				selectedLevel += "Exercise2.fxml";
+				break;
+			case 3:
+				selectedLevel += "Exercise3.fxml";
+				break;
+			default:
+				break;
+		}
+		switchToScene(e, selectedLevel);
+	}
+    
+    //Inserire funzioni per startare il gioco
+}
