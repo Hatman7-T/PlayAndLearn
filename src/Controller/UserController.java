@@ -54,14 +54,16 @@ public class UserController extends SceneController {
 			progress = 0;
 		progressBar1.setStyle("-fx-accent: #08d12d;");
 		progressBar1.setProgress(progress);
+		
+		//Decidere se voler inserire la progress bar nella propria parte della schermata o meno
 	}
 	
 	@FXML
 	public void reset(ActionEvent e) throws IOException{
 		UserSession.currentUser.setDifficultyGame1("Easy");
 		UserSession.currentUser.setLevelGame1(1);
-		switchToScene(e, "/Scenes/UserScene.fxml");
 		//Aggiungere reset valori degli altri giochi
+		switchToScene(e, "/Scenes/UserScene.fxml");
 	}
 	
     @FXML
@@ -128,5 +130,5 @@ public class UserController extends SceneController {
 		switchToScene(e, selectedLevel);
 	}
     
-    //Inserire funzioni per startare il gioco
+    //Inserire funzioni per startare gli altri giochi
 }
