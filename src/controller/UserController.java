@@ -31,9 +31,7 @@ public class UserController extends SceneController {
 
     @FXML
     private Label welcomeLabel;
-	@FXML
-    private ProgressBar progressBar3;
-	
+
     @FXML
     public void initialize() {
         updateWelcomeLabel();
