@@ -148,7 +148,8 @@ public class UserController extends SceneController {
 				UserSession.currentUser.getPassword()+";"+
 				UserSession.currentUser.getEmail()+";"+
 				UserSession.currentUser.getDifficultyGame1()+";"+
-				UserSession.currentUser.getLevelGame1(); //Inserire difficolta e livelli degli altri gioca
+				UserSession.currentUser.getLevelGame1() + ";" +
+				UserSession.currentUser.getDifficultyGame3(); //Inserire difficolta e livelli degli altri gioca
     	List<String> lines = Files.readAllLines(Paths.get("src/db/UserDB.csv"));
     	int idToUpdate = UserSession.currentUser.getID();
 		boolean updated = false;
