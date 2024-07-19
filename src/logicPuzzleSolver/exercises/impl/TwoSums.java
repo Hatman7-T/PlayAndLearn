@@ -7,12 +7,12 @@ import logicPuzzleSolver.exercises.RunCase;
 public class TwoSums extends Exercise {
     @Override
     public String getTitle() {
-        return "Two Sums";
+        return "Somma a Due";
     }
 
     @Override
     public String getDesc() {
-        return "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\\n\\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\\n\\nYou can return the answer in any order.";
+        return "Dato un array di numeri interi e un intero target, ritorna gli indici dei due numeri tali che la loro somma equivalga al numero target.\\n\\nPuoi assumere che ciascun input abbia una sola soluzione e non puoi usare lo stesso elemento due volte.";
     }
 
     @Override
@@ -31,7 +31,7 @@ public class TwoSums extends Exercise {
 
                     @Override
                     public String getExplanation() {
-                        return "Because nums[0] + nums[1] == 9, we return [0, 1].";
+                        return "Poiché nums[0] + nums[1] == 9, ritorniamo [0, 1].";
                     }
                 },
                 new Example() {

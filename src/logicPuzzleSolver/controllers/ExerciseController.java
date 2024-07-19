@@ -1,6 +1,9 @@
 package logicPuzzleSolver.controllers;
 
 import Controller.SceneController;
+import Controller.UserSession;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import logicPuzzleSolver.Data;
 import logicPuzzleSolver.exercises.Example;
 import logicPuzzleSolver.exercises.Exercise;
@@ -13,6 +16,7 @@ import org.openjdk.nashorn.api.scripting.ScriptObjectMirror;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
+import java.io.IOException;
 
 public class ExerciseController extends SceneController {
     @FXML
@@ -25,8 +29,13 @@ public class ExerciseController extends SceneController {
     private Label example;
     @FXML
     private TextArea code;
+    @FXML
+    private Label status;
+    @FXML
+    private Button submit;
 
     private Exercise data;
+    private boolean success = false;
 
     public void initialize() {
         Exercise[] exercises = new Exercise[0];
@@ -50,7 +59,7 @@ public class ExerciseController extends SceneController {
             stringBuilder.append(example.getOutput());
             stringBuilder.append("\n");
             if (example.getExplanation() != null) {
-                stringBuilder.append("Explanation: ");
+                stringBuilder.append("Spiegazione: ");
                 stringBuilder.append(example.getExplanation());
                 stringBuilder.append("\n");
             }
@@ -69,26 +78,38 @@ public class ExerciseController extends SceneController {
             Invocable invocable = (Invocable) scriptEngine;
             for (RunCase run : runCases) {
                 Object[] args = run.getArgs();
-                ScriptObjectMirror result = (ScriptObjectMirror) invocable.invokeFunction(callFunction, args);
-                if (result == null) {
-                    throw new Exception("not returning anything");
-                }
-                Object realResult;
-                if (result.isArray()) {
-                    realResult = result.to(Object[].class);
-                    System.out.println(((Object[]) realResult)[0]);
-                } else {
-                    realResult = result;
-                }
+                Object result = ((ScriptObjectMirror) invocable.invokeFunction(callFunction, args)).to(run.getOutputType());
 
-                if (realResult.equals(run.getOutput())) {
-                    System.out.println("yeah");
+                if (result.equals(run.getOutput())) {
+                    success = true;
+                    status.setVisible(true);
+                    submit.setVisible(true);
+                    status.setText("OK");
                 } else {
-                    System.out.println("skill issue");
+                    success = false;
+                    status.setVisible(false);
+                    submit.setVisible(false);
+                    status.setText("ERRORE");
+                    System.out.println(result);
+                    System.out.println(run.getOutput());
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onSubmit(ActionEvent e) {
+        if (success) {
+            switch (Data.INSTANCE.difficulty) {
+                case "easy" -> UserSession.currentUser.setDifficultyGame3("medium");
+                case "medium" -> UserSession.currentUser.setDifficultyGame3("hard");
+                case "hard" -> UserSession.currentUser.setDifficultyGame3("none");
+            }
+            try {
+                switchToScene(e, "/Scenes/UserScene.fxml");
+            } catch (IOException ignored) {}
         }
     }
 }
