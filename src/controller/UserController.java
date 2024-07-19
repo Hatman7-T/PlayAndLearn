@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import logicPuzzleSolver.Data;
 
 public class UserController extends SceneController {
 	
@@ -30,6 +31,8 @@ public class UserController extends SceneController {
 
     @FXML
     private Label welcomeLabel;
+	@FXML
+    private ProgressBar progressBar3;
 	
     @FXML
     public void initialize() {
@@ -63,7 +66,17 @@ public class UserController extends SceneController {
 			progress = 0;
 		progressBar1.setStyle("-fx-accent: #08d12d;");
 		progressBar1.setProgress(progress);
-		
+
+		String diffGame3 = UserSession.currentUser.getDifficultyGame3();
+		double progress3 = 0.0;
+		switch (diffGame3) {
+			case "medium" -> progress3 = 0.33;
+			case "hard" -> progress3 = 0.66;
+			case "none" -> progress3 = 1.0;
+		}
+		progressBar3.setStyle("-fx-accent: #08d12d;");
+		progressBar3.setProgress(progress3);
+
 		//Decidere se voler inserire la progress bar nella propria parte della schermata o meno
 	}
 	
@@ -71,6 +84,7 @@ public class UserController extends SceneController {
 	public void reset(ActionEvent e) throws IOException{
 		UserSession.currentUser.setDifficultyGame1("Easy");
 		UserSession.currentUser.setLevelGame1(1);
+		UserSession.currentUser.setDifficultyGame3("easy");
 		//Aggiungere reset valori degli altri giochi
 		switchToScene(e, "/scenes/UserScene.fxml");
 	}
@@ -129,7 +143,7 @@ public class UserController extends SceneController {
 		    }
 		}
 	}
-    
+
     public void updateCSV() throws IOException {
     	String newUserInformation = UserSession.currentUser.getID()+";"+
 				UserSession.currentUser.getUsername()+";"+
@@ -156,10 +170,20 @@ public class UserController extends SceneController {
 				}
 				writer.close();
 			}
-		} else { 
+		} else {
 			System.out.println("ID not found.");
 		}
     }
-    
+
+
+	@FXML
+	public void startGame3(ActionEvent e) throws IOException {
+		String difficulty = UserSession.currentUser.getDifficultyGame3();
+		if (difficulty.equals("none")) {
+			return;
+		}
+        Data.INSTANCE.difficulty = difficulty;
+        switchToScene(e, "logicPuzzleSolver/scenes/exercise.fxml");
+	}
     //Inserire funzioni per startare gli altri giochi
 }

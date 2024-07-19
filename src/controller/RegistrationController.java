@@ -44,6 +44,7 @@ public class RegistrationController extends SceneController{
 		        String password = pswTextField.getText();
 		        String email = emailTextField.getText();
 		        String difficultyGame1 = "Easy";
+		        String difficultyGame3 = "easy";
 		        int levelGame1 = 1;
 		        int ID = getNextId();
 		        
@@ -62,7 +63,7 @@ public class RegistrationController extends SceneController{
 		            return;
 		        }
 
-		        appendUserToCSV(ID, username, password, email, difficultyGame1, levelGame1);
+		        appendUserToCSV(ID, username, password, email, difficultyGame1, levelGame1, difficultyGame3);
 		        
 		        warningLabel.setStyle("-fx-text-fill: #0aab0d;"); 
 		        warningLabel.setText("Utente registrato con successo!");
@@ -106,8 +107,8 @@ public class RegistrationController extends SceneController{
         return maxId + 1;
     }
 	
-	private void appendUserToCSV(int id, String username, String password, String email, String difficultyGame1, int levelGame1) {
-        String newUserData = id + ";" + username + ";" + password + ";" + email + ";" + difficultyGame1 + ";" + levelGame1+"\n";
+	private void appendUserToCSV(int id, String username, String password, String email, String difficultyGame1, int levelGame1, String difficultyGame3) {
+        String newUserData = id + ";" + username + ";" + password + ";" + email + ";" + difficultyGame1 + ";" + levelGame1 + ";" + difficultyGame3 +"\n";
 
         try (FileWriter fw = new FileWriter("src/db/UserDB.csv", true)) {
         	fw.write(newUserData);

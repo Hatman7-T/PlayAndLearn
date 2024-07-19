@@ -52,7 +52,11 @@ public class SceneController {
 
 	            // Check for username and password if emailTextField is not provided
 	            if (email == null && words.length > 2 && words[1].equals(username) && words[2].equals(password)) {
-	            	UserClass user = new UserClass(Integer.parseInt(words[0]), words[1], words[2], words[3], words[4], Integer.parseInt(words[5]));
+					String difficultyGame3 = "easy";
+					if (words.length >= 7) {
+						difficultyGame3 = words[6];
+					}
+	            	UserClass user = new UserClass(Integer.parseInt(words[0]), words[1], words[2], words[3], words[4], Integer.parseInt(words[5]), difficultyGame3);
 	            	UserSession.currentUser = user;
 	            	checked = true;
 	                break;

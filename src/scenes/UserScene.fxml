@@ -99,7 +99,7 @@
             <Insets top="200.0" />
          </GridPane.margin>
       </ProgressBar>
-      <Label alignment="CENTER" layoutX="126.0" layoutY="277.0" prefHeight="73.0" prefWidth="218.0" text="Gioco 3" textFill="WHITE" GridPane.rowIndex="3">
+      <Label alignment="CENTER" layoutX="126.0" layoutY="277.0" prefHeight="73.0" prefWidth="218.0" text="Logic Puzzle Solver" textFill="WHITE" GridPane.rowIndex="3">
          <font>
             <Font name="Consolas Bold" size="27.0" />
          </font>
@@ -112,7 +112,7 @@
             <Insets bottom="50.0" />
          </GridPane.margin>
       </ImageView>
-      <Button layoutX="191.0" layoutY="439.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="88.0" text="Gioca" GridPane.rowIndex="3">
+      <Button onAction="#startGame3" layoutX="191.0" layoutY="439.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="88.0" text="Gioca" GridPane.rowIndex="3">
          <font>
             <Font name="Consolas Bold" size="20.0" />
          </font>
