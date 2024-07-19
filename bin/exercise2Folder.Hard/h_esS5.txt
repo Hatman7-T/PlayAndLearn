@@ -1,0 +1,1 @@
+Il codice dopo aver effettuato una connessione http estrae i valori degli header dalla risposta e li salva in un file, con ogni valore su una riga separata.

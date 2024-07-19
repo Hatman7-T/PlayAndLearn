@@ -1,0 +1,1 @@
+Il codice fornito legge l'intero contenuto del file site.html, lo concatenando in una sola stringa. Dopo aver ottenuto tutto il contenuto, cerca i tag <title> e </title> per estrarre e stampare il testo tra di essi.

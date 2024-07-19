@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #303030;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game2Controller.CodeComprehensionMainController">
+  <children>
+    <AnchorPane VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="homeButton" layoutX="1207.0" mnemonicParsing="false" onAction="#homeAction" prefHeight="50.0">
+               <graphic>
+                  <ImageView fitHeight="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../extra/house-solid.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="1227.0" layoutY="60.0" text="Home" textFill="WHITE" />
+            <Button fx:id="beginnerButton" layoutX="517.0" layoutY="169.0" mnemonicParsing="false" onAction="#beginnerAction" text="Principiante">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Button>
+            <Button fx:id="intermediateButton" layoutX="513.0" layoutY="331.0" mnemonicParsing="false" onAction="#intermediateAction" text=" Intermedio ">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Button>
+            <Button fx:id="advancedButton" layoutX="517.0" layoutY="493.0" mnemonicParsing="false" onAction="#advancedAction" text="  Avanzato  ">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Button>
+            <ProgressBar fx:id="beginnerProgress" layoutX="541.0" layoutY="250.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar fx:id="intermediateProgress" layoutX="540.0" layoutY="412.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar fx:id="advancedProgress" layoutX="541.0" layoutY="574.0" prefWidth="200.0" progress="0.0" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

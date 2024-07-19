@@ -1,0 +1,10 @@
+String linea;
+try {
+	BufferedReader br = new BufferedReader(new FileReader("file.txt"));
+	while ((linea = br.readLine()) != null) {
+		System.out.println(linea);
+	}
+	br.close();
+} catch (IOException e) {
+	e.printStackTrace();
+}
