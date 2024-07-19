@@ -1,0 +1,1 @@
+Il programma tenta di utilizzare ArrayList<double>, che non è consentito in Java perché double è un tipo primitivo. Solo i tipi wrapper come Double possono essere utilizzati con le collezioni generiche di Java

@@ -1,0 +1,1 @@
+La variabile v è stata dichiarata come tipo Vehicle, quindi non può accedere ai metodi specifici della classe Car come displayFuelCapacity().

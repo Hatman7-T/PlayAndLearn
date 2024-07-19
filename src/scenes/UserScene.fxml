@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" scaleShape="false" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserController">
+   <columnConstraints>
+      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="640.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="640.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints maxHeight="262.0" minHeight="0.0" prefHeight="54.0" valignment="CENTER" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="456.0" minHeight="10.0" prefHeight="229.0" valignment="CENTER" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="301.0" minHeight="10.0" prefHeight="237.0" valignment="CENTER" vgrow="ALWAYS" />
+   </rowConstraints>
+   <children>
+      <Label fx:id="welcomeLabel" alignment="CENTER" prefHeight="100.0" prefWidth="913.0" text="Welcome&#10;" textAlignment="CENTER" textFill="WHITE" GridPane.columnSpan="2" GridPane.rowIndex="1">
+         <font>
+            <Font name="Consolas Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" prefHeight="15.0" prefWidth="209.0" text="Drag and Drop" textFill="WHITE" GridPane.rowIndex="2">
+         <font>
+            <Font name="Consolas Bold" size="27.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="200.0" />
+         </GridPane.margin>
+      </Label>
+      <ProgressBar fx:id="progressBar1" prefHeight="24.0" prefWidth="294.0" progress="0.0" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets top="200.0" />
+         </GridPane.margin>
+      </ProgressBar>
+      <Button mnemonicParsing="false" onAction="#startGame1" prefHeight="43.0" prefWidth="88.0" text="Gioca" GridPane.rowIndex="2">
+         <font>
+            <Font name="Consolas Bold" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="100.0" />
+         </GridPane.margin>
+      </Button>
+      <ImageView fitHeight="85.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets bottom="50.0" />
+         </GridPane.margin>
+         <image>
+            <Image url="@../extra/DragAndDrop.png" />
+         </image>
+      </ImageView>
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#exit" prefHeight="53.0" prefWidth="127.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Exit" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <font>
+            <Font name="Consolas Bold" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets right="200.0" />
+         </GridPane.margin>
+      </Button>
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#reset" prefHeight="53.0" prefWidth="127.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Reset" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <font>
+            <Font name="Consolas Bold" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="200.0" />
+         </GridPane.margin>
+      </Button>
+      <Label alignment="CENTER" layoutX="126.0" layoutY="277.0" prefHeight="73.0" prefWidth="268.0" text="Code Comprehension" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <font>
+            <Font name="Consolas Bold" size="27.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="200.0" />
+         </GridPane.margin>
+      </Label>
+      <ImageView fitHeight="85.0" layoutX="192.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets bottom="50.0" />
+         </GridPane.margin>
+         <image>
+            <Image url="@../extra/code-solid.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="191.0" layoutY="439.0" mnemonicParsing="false" onAction="#startGame2" prefHeight="43.0" prefWidth="88.0" text="Gioca" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <font>
+            <Font name="Consolas Bold" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="100.0" />
+         </GridPane.margin>
+      </Button>
+      <ProgressBar fx:id="progressBar2" layoutX="88.0" layoutY="499.0" prefHeight="24.0" prefWidth="294.0" progress="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets top="200.0" />
+         </GridPane.margin>
+      </ProgressBar>
+      <Label alignment="CENTER" layoutX="126.0" layoutY="277.0" prefHeight="73.0" prefWidth="301.0" text="Logic Puzzle Solver" textFill="WHITE" GridPane.rowIndex="3">
+         <font>
+            <Font name="Consolas Bold" size="27.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="200.0" />
+         </GridPane.margin>
+      </Label>
+      <ImageView fitHeight="85.0" layoutX="192.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets bottom="50.0" />
+         </GridPane.margin>
+         <image>
+            <Image url="@../extra/puzzle-piece-solid.png" />
+         </image>
+      </ImageView>
+      <Button disable="true" layoutX="191.0" layoutY="439.0" mnemonicParsing="false" onAction="#startGame3" prefHeight="43.0" prefWidth="88.0" text="Gioca" GridPane.rowIndex="3">
+         <font>
+            <Font name="Consolas Bold" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="100.0" />
+         </GridPane.margin>
+      </Button>
+      <ProgressBar fx:id="progressBar3" layoutX="88.0" layoutY="499.0" prefHeight="24.0" prefWidth="294.0" progress="0.0" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets top="200.0" />
+         </GridPane.margin>
+      </ProgressBar>
+   </children>
+</GridPane>

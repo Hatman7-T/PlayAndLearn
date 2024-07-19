@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game1Controller.Easy">
+   <children>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0">
+         <children>
+            <Line endX="-100.0" endY="353.33331298828125" layoutX="1000.0" layoutY="365.0" startX="-100.0" startY="-364.0" stroke="WHITE" strokeWidth="5.0" />
+            <Line endX="337.0" layoutX="943.0" layoutY="600.0" startX="-957.0" stroke="WHITE" strokeWidth="5.0" />
+            <AnchorPane layoutX="-2.0" layoutY="604.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="118.0" prefWidth="901.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="241.0" layoutY="7.0" prefHeight="92.0" prefWidth="419.0" style="-fx-border-color: white; -fx-border-width: 3;" text="Calcolare la somma dei numeri &#10;pari dato un limite" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas Bold" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="900.0" layoutY="604.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="116.0" prefWidth="381.0">
+               <children>
+                  <Label fx:id="messageLabel" alignment="CENTER" layoutX="37.0" layoutY="71.0" prefHeight="42.0" prefWidth="314.0" text="Soluzione errata!" textFill="RED" visible="false">
+                     <font>
+                        <Font name="Consolas Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="exitButton" alignment="CENTER" layoutX="226.0" layoutY="23.0" mnemonicParsing="false" onAction="#exit" prefHeight="38.0" prefWidth="117.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Esci" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="doneButton" alignment="CENTER" layoutX="40.0" layoutY="23.0" mnemonicParsing="false" onAction="#done" prefHeight="38.0" prefWidth="117.0" style="-fx-background-color: green; -fx-border-radius: 10; -fx-background-radius: 10;" text="Invia" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas Bold" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="898.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="387.0">
+               <children>
+                  <Label fx:id="answerBox2" alignment="CENTER" layoutX="97.0" layoutY="350.0" prefHeight="42.0" prefWidth="200.0" style="-fx-border-color: white; -fx-border-width: 3;" text="i" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="2.0" layoutY="269.0" prefHeight="104.0" prefWidth="962.0" text="Risposta corretta!" textFill="#2d970d" visible="false">
+                     <font>
+                        <Font name="Consolas Bold" size="37.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="answerBox1" alignment="CENTER" layoutX="97.0" layoutY="250.0" prefHeight="42.0" prefWidth="200.0" style="-fx-border-color: white; -fx-border-width: 3;" text="+=" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="answerBox3" alignment="CENTER" layoutX="52.0" layoutY="150.0" prefHeight="42.0" prefWidth="292.0" style="-fx-border-color: white; -fx-border-width: 3;" text="new EvenNumberSum()" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="resetButton" alignment="CENTER" layoutX="140.0" layoutY="500.0" mnemonicParsing="false" onAction="#reset" prefHeight="38.0" prefWidth="117.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Reset" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas Bold" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="597.0" prefWidth="901.0">
+               <children>
+                  <Label fx:id="missing1" layoutY="96.0" prefHeight="51.0" prefWidth="901.0" text="&#9;&#9;for (int i = 2; i &lt;= limit; i ___ 2) {&#10;" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="missing2" layoutY="147.0" prefHeight="38.0" prefWidth="901.0" text="&#9;&#9;&#9;sum += ___ ;" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutY="14.0" prefHeight="82.0" prefWidth="901.0" text="public class EvenNumberSum {&#10;&#9;public int sumOfEvenNumbers(int limit) {&#10;&#9;&#9;int sum = 0;" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutY="183.0" prefHeight="116.0" prefWidth="901.0" text="&#9;&#9;}&#10;&#9;}&#10;&#10;&#9;public static void main(String[] args) {" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="missing3" layoutY="309.0" prefHeight="38.0" prefWidth="901.0" text="&#9;&#9;EvenNumberSum = ___ ;" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutY="347.0" prefHeight="166.0" prefWidth="901.0" text="&#9;&#9;int limit = 10;&#10;        &#9;int sum = calculator.sumOfEvenNumbers(limit);&#10;        &#9;System.out.println(&quot;La somma dei numeri pari e' &quot; + limit + &#10;&#9;&#9;&quot; is: &quot; + sum);&#10;&#9;}&#10;}" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

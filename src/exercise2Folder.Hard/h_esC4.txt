@@ -1,0 +1,4 @@
+Trova e stampa il contenuto tra i tag <title> e </title>, concatenando tutto il contenuto del file e poi estraendo la stringa tra i tag.
+Trova e stampa solo le occorrenze di <title> e </title> come righe separate, ignorando il contenuto tra i tag.
+Trova e stampa il contenuto tra i tag <title> e </title>, assumendo che il contenuto sia tutto su una sola riga.
+Trova e stampa il contenuto tra i tag <title> e </title>, ma non gestisce correttamente le eccezioni di I/O.

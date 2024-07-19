@@ -1,0 +1,1 @@
+Il codice calcola il fattoriale del numero 5 utilizzando una funzione ricorsiva. La funzione richiama sé stessa con il valore di n decrementato di 1 fino a raggiungere 0, punto in cui ritorna 1. Il risultato del fattoriale di 5 è 5 * 4 * 3 * 2 * 1, che è 120
