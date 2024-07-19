@@ -34,7 +34,7 @@ public class SceneController {
 	    String email = emailTextField != null ? emailTextField.getText() : null;
 
 	    boolean checked = false;
-	    String csvFile = "src/db/UserDB.csv";  // Path to your CSV file
+	    String csvFile = "UserDB.csv";  // Path to your CSV file
 	    String line;
 	    String delimiter = ";";  // Delimiter used in the CSV file
 

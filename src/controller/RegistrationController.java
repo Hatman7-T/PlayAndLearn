@@ -110,7 +110,7 @@ public class RegistrationController extends SceneController{
 	private void appendUserToCSV(int id, String username, String password, String email, String difficultyGame1, int levelGame1, String difficultyGame3) {
         String newUserData = id + ";" + username + ";" + password + ";" + email + ";" + difficultyGame1 + ";" + levelGame1 + ";" + difficultyGame3 +"\n";
 
-        try (FileWriter fw = new FileWriter("src/db/UserDB.csv", true)) {
+        try (FileWriter fw = new FileWriter("UserDB.csv", true)) {
         	fw.write(newUserData);
         } catch (IOException ex) {
         	ex.printStackTrace();

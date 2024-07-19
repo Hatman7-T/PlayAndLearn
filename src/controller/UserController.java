@@ -150,7 +150,7 @@ public class UserController extends SceneController {
 				UserSession.currentUser.getDifficultyGame1()+";"+
 				UserSession.currentUser.getLevelGame1() + ";" +
 				UserSession.currentUser.getDifficultyGame3(); //Inserire difficolta e livelli degli altri gioca
-    	List<String> lines = Files.readAllLines(Paths.get("src/db/UserDB.csv"));
+    	List<String> lines = Files.readAllLines(Paths.get("UserDB.csv"));
     	int idToUpdate = UserSession.currentUser.getID();
 		boolean updated = false;
 		for (int i = 0; i < lines.size(); i++) {
@@ -162,7 +162,7 @@ public class UserController extends SceneController {
 			}
 		}
 		if (updated) {
-			try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/db/UserDB.csv"))) {
+			try (BufferedWriter writer = new BufferedWriter(new FileWriter("UserDB.csv"))) {
 				for (String line : lines) {
 					writer.write(line);
 					writer.newLine();
