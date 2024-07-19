@@ -1,7 +1,7 @@
 package logicPuzzleSolver.controllers;
 
-import Controller.SceneController;
-import Controller.UserSession;
+import controller.SceneController;
+import controller.UserSession;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import logicPuzzleSolver.Data;
@@ -108,7 +108,7 @@ public class ExerciseController extends SceneController {
                 case "hard" -> UserSession.currentUser.setDifficultyGame3("none");
             }
             try {
-                switchToScene(e, "/Scenes/UserScene.fxml");
+                switchToScene(e, "/scenes/UserScene.fxml");
             } catch (IOException ignored) {}
         }
     }
