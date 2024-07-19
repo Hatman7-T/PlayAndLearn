@@ -39,11 +39,12 @@ public class ExerciseController extends SceneController {
     private boolean success = false;
 
     public void initialize() {
-        Exercise[] exercises = new Exercise[0];
-        switch (Data.INSTANCE.difficulty) {
-            case "easy":
-                exercises = Data.INSTANCE.easyExercise;
-        }
+        Exercise[] exercises = switch (Data.INSTANCE.difficulty) {
+            case "easy" -> Data.INSTANCE.easyExercises;
+            case "medium" -> Data.INSTANCE.mediumExercises;
+            case "hard" -> Data.INSTANCE.hardExercises;
+            default -> new Exercise[0];
+        };
         int random = (int) (Math.random() % exercises.length);
         data = exercises[random];
         title.setText(data.getTitle());

@@ -11,5 +11,7 @@ public class Data {
 
     public String difficulty = "";
     public final ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName("nashorn");
-    public Exercise[] easyExercise = new Exercise[]{new SmallestEvenMultiple()};
+    public Exercise[] easyExercises = new Exercise[]{new SmallestEvenMultiple()};
+    public Exercise[] mediumExercises = new Exercise[] {};
+    public Exercise[] hardExercises = new Exercise[] {};
 }
