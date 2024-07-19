@@ -182,7 +182,7 @@ public class UserController extends SceneController {
 			return;
 		}
         Data.INSTANCE.difficulty = difficulty;
-        switchToScene(e, "logicPuzzleSolver/scenes/exercise.fxml");
+        switchToScene(e, "/logicPuzzleSolver/scenes/exercise.fxml");
 	}
     //Inserire funzioni per startare gli altri giochi
 }

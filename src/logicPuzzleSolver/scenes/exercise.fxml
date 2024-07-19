@@ -23,7 +23,7 @@
                             <children>
                                 <Button mnemonicParsing="false" onAction="#onRunClicked" text="Esegui" />
                         <Label fx:id="status" text="Label" visible="false" />
-                        <Button mnemonicParsing="false" onAction="#onSubmit" text="Invia" visible="false" />
+                        <Button fx:id="submit" mnemonicParsing="false" onAction="#onSubmit" text="Invia" visible="false" />
                             </children>
                         </HBox>
                     </children>

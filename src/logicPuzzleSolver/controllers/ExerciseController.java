@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import org.openjdk.nashorn.api.scripting.ScriptObjectMirror;
+import org.openjdk.nashorn.api.scripting.ScriptUtils;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
@@ -78,7 +79,7 @@ public class ExerciseController extends SceneController {
             Invocable invocable = (Invocable) scriptEngine;
             for (RunCase run : runCases) {
                 Object[] args = run.getArgs();
-                Object result = ((ScriptObjectMirror) invocable.invokeFunction(callFunction, args)).to(run.getOutputType());
+                Object result = invocable.invokeFunction(callFunction, args);
 
                 if (result.equals(run.getOutput())) {
                     success = true;
@@ -87,7 +88,7 @@ public class ExerciseController extends SceneController {
                     status.setText("OK");
                 } else {
                     success = false;
-                    status.setVisible(false);
+                    status.setVisible(true);
                     submit.setVisible(false);
                     status.setText("ERRORE");
                     System.out.println(result);
@@ -95,6 +96,10 @@ public class ExerciseController extends SceneController {
                 }
             }
         } catch (Exception e) {
+            success = false;
+            status.setVisible(true);
+            submit.setVisible(false);
+            status.setText("ERRORE");
             e.printStackTrace();
         }
     }
