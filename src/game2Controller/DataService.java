@@ -195,37 +195,28 @@ public class DataService {
 		}
 		return null;
 	}
-	public void sbloccaProssimaSerie() {
-		switch(difficolta) {
-		case "Easy":
-			UserSession.currentUser.setDifficultyGame2("Medium");
-			UserSession.currentUser.setLevelGame2(1);
-			break;
-		case "Medium":
-			UserSession.currentUser.setDifficultyGame2("Hard");
-			UserSession.currentUser.setLevelGame2(1);
-			break;
-		}
-	}
-	public void updateDbData(int livello) {
+	public boolean updateDbData(int livello) {
 		switch(difficolta) {
 		case "Easy":
 			if(indiceEsercizioIntermedio == 0 && indiceEsercizioAvanzato ==0) {
 				UserSession.currentUser.setDifficultyGame2("Easy");
 				UserSession.currentUser.setLevelGame2(livello);
+				return true;
 			}
 			break;
 		case "Medium":
 			if(indiceEsercizioAvanzato == 0) {
 				UserSession.currentUser.setDifficultyGame2("Medium");
 				UserSession.currentUser.setLevelGame2(livello);
+				return true;
 			}
 			break;
 		case "Hard":
 			UserSession.currentUser.setDifficultyGame2("Hard");
 			UserSession.currentUser.setLevelGame2(livello);
-			break;
+			return true;
 		}
+		return false;
 	}
 	//<------ Funzioni che cambiano il loro comportamento in base alla difficolta attuale
 	
