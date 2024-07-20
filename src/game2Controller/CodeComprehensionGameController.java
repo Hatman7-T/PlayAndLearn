@@ -75,7 +75,7 @@ public class CodeComprehensionGameController extends UserController{
 
 	// Limite di tempo per le corrispettive difficolta
 	private final int timerDifficoltaIntermedio = 50; 
-	private final int timerDifficoltaAvanzato = 45;
+	private final int timerDifficoltaAvanzato = 40;
 
 	// Testi da mostrare su "confirmButton"
 	private final String confirmButtonConfirmText = "Conferma";
@@ -110,7 +110,7 @@ public class CodeComprehensionGameController extends UserController{
 	// Avvia il tempo / timer e prende i nomi dei file da usare nell'esercizio e li passa a "doExercises"
 	public void startExercise() throws IOException {
 		mostraRisultatoConfirmText();
-		switch(DataService.difficolta) {	// In base alla difficolta avvia il tempo o il timer
+		switch(ds.getDifficolta()) {	// In base alla difficolta avvia il tempo o il timer
 		case "Easy":
 			avviaTempo();
 			break;
@@ -216,7 +216,7 @@ public class CodeComprehensionGameController extends UserController{
 	}
 	private void mostraTentativi() {
 		String text = "Numero tentativi: " + numeroTentativi;
-		if(!DataService.difficolta.equals("Easy"))
+		if(!ds.getDifficolta().equals("Easy"))
 			text += "/" + numeroTentativiMassimi;
 		nAttemptsLabel.setText(text);
 	}
@@ -309,27 +309,36 @@ public class CodeComprehensionGameController extends UserController{
 		// L'utente precedentemente ha perso la partita, riinizia 
 		else if(getTextConferma().equals(confirmButtonLostGame)) {
 			mostraTextConferma(confirmButtonConfirmText);
+			ds.cambiaOrdine();	// Cambia l'ordine dei file casualmente
 			initialize();
 		}
+		// L'utente ha effettuato una scelta
 		else if(getTextConferma().equals(confirmButtonConfirmText)){
+			
 			RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
+			boolean win = false;	// Indica se l'utente ha risposto correttamente, viene utilizzata per il controllo dei numeri di tentativi
+			
 			if (selectedRadioButton != null) {
 				if (selectedRadioButton.getText().equals(rispostaCorretta)) {	// Risposta corretta
 					timeline.stop();
-					mostraTempo();
-					mostraSpiegazione(true);
-
+					disabilitaOpzioni();
+					
 					progress+=1;
 					progressTot.setProgress((double) (progress) / ds.getMapEsercizi().size());
+					ds.incrementaIndice();
+					
+					// Modifiche ai Label
+					mostraSpiegazione(true);
 					mostraRisultatoNextText();
-					ds.incrementIndice();
 					mostraTextConferma(confirmButtonNextText);
 
-					ds.updateCSVData(ds.getIndice());
-					updateCSV();
+					ds.updateDbData(ds.getIndice());	// Aggiorno i dati per il file 
+					updateCSV();						// Salvo le modifiche su file
+					
 					if(ds.getIndice() >= ds.getMapEsercizi().size()) {
 						mostraRisultatoWin();
 					}
+					win = true;
 				} else {	// Risposta sbagliata
 					mostraRisultatoTryAgainText();
 				}
@@ -337,7 +346,8 @@ public class CodeComprehensionGameController extends UserController{
 				numeroTentativi++;
 				mostraTentativi();
 
-				if(numeroTentativi>=numeroTentativiMassimi && !DataService.difficolta.equals("Easy")) {
+				// L'utente ha superato i numeri di tentativi disponibili e all'ultimo tentativo non ha risposto correttamente
+				if(numeroTentativi>=numeroTentativiMassimi && !ds.getDifficolta().equals("Easy") && !win) {	
 					timeline.stop();
 
 					mostraTextConferma(confirmButtonLostGame);
