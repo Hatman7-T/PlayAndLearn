@@ -1,4 +1,0 @@
-Il codice calcola e stampa il fattoriale del numero 5.
-Il codice calcola e stampa la somma dei numeri da 1 a 5.
-Il codice calcola e stampa il prodotto dei numeri da 1 a 5.
-Il codice calcola e stampa il doppio del numero 5.

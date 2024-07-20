@@ -1,4 +1,0 @@
-Stampa "Apple", "Banana", "Orange".
-Stampa "Apple", "Banana", "Apple", "Orange".
-Stampa "Banana", "Apple", "Orange".
-Stampa "Banana", "Apple", "Apple", "Orange".

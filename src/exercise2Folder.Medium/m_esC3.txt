@@ -1,4 +1,0 @@
-Il programma non funziona perché non è possibile utilizzare un tipo primitivo come tipo generico per l'ArrayList.
-Il programma compila e stampa i valori 1, 2, 3.
-Il programma compila ma lancia un'eccezione a runtime.
-Il programma compila e stampa i valori 1.1, 2.2, 3.3.

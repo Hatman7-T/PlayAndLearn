@@ -1,1 +1,0 @@
-list2 punta alla stessa lista a cui punta list1. Quindi, qualsiasi modifica apportata a list1 si riflette anche in list2.
