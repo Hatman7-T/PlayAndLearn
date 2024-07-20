@@ -24,34 +24,32 @@ public class DataService {
 	public static final int N_ESERCIZI_AVANZATO = 5;
 
 	protected final String percorsoScene = "/game2Scenes/";
-	protected final String percorsoFilePrincipiante = "./src/exercise2Folder.Easy/";
-	protected final String percorsoFileIntermedio = "./src/exercise2Folder.Medium/";
-	protected final String percorsoFileAvanzato = "./src/exercise2Folder.Hard/";
+	protected final String percorsoFile = "./src/exercise2Folder/";
+	//protected final String percorsoFilePrincipiante = "./src/exercise2Folder.Easy/";
+	//protected final String percorsoFileIntermedio = "./src/exercise2Folder.Medium/";
+	//protected final String percorsoFileAvanzato = "./src/exercise2Folder.Hard/";
 
 	protected final String scene0 = "/scenes/UserScene.fxml";
 	protected final String scene1 = percorsoScene+"CodeComprehensionSelectDifficultyScene.fxml";
 	protected final String scene2 = percorsoScene+"CodeComprehensionGameScene.fxml";
 
 	// Memorizzano nomi file esercizi
-	protected ArrayList<String> keysPrincipiante = new ArrayList<String>();
-	protected ArrayList<String> keysIntermedio = new ArrayList<String>();
-	protected ArrayList<String> keysAvanzato = new ArrayList<String>();
+	private ArrayList<String> keysPrincipiante = new ArrayList<String>();
+	private ArrayList<String> keysIntermedio = new ArrayList<String>();
+	private ArrayList<String> keysAvanzato = new ArrayList<String>();
 	protected LinkedHashMap<String, Pair> mapEserciziPrincipiante = new LinkedHashMap<>();
 	protected LinkedHashMap<String, Pair> mapEserciziIntermedio = new LinkedHashMap<>();
 	protected LinkedHashMap<String, Pair> mapEserciziAvanzato = new LinkedHashMap<>();
 
 	// Indicano l'ultimo esercizio a cui l'utente è arrivato
-	protected int indiceEsercizioPrincipiante = 0;
-	protected int indiceEsercizioIntermedio = 0;
-	protected int indiceEsercizioAvanzato = 0;
-
-	// Sbloccano / bloccano i pulsanti delle difficolta
-	protected boolean eserciziIntermediSbloccati = false;
-	protected boolean eserciziAvanzatiSbloccati = false;
+	private int indiceEsercizioPrincipiante = 0;
+	private int indiceEsercizioIntermedio = 0;
+	private int indiceEsercizioAvanzato = 0;
 
 	// Indica la difficolta attuale
-	protected static String difficolta;
+	private static String difficolta;
 
+	
 	// Costruttore privato per prevenire l'istanziazione
 	private DataService() {}
 
@@ -74,15 +72,12 @@ public class DataService {
 			indiceEsercizioAvanzato = 0;
 
 			difficolta = "Easy";
-			eserciziIntermediSbloccati = false;
-			eserciziAvanzatiSbloccati = false;
 			break;
 		case "Medium":
 			indiceEsercizioIntermedio = livello;
 			indiceEsercizioPrincipiante = N_ESERCIZI_PRINCIPIANTE;
 
 			difficolta = "Medium";
-			eserciziAvanzatiSbloccati = false;
 			break;
 		case "Hard":
 			indiceEsercizioAvanzato = livello;
@@ -111,11 +106,11 @@ public class DataService {
 	public String getPercorsoFile() {
 		switch(difficolta) {
 		case "Easy":
-			return percorsoFilePrincipiante;
+			return percorsoFile+"Easy/";
 		case "Medium":
-			return percorsoFileIntermedio;
+			return percorsoFile+"Medium/";
 		case "Hard":
-			return percorsoFileAvanzato;
+			return percorsoFile+"Hard/";
 		}
 		return null;
 	}
@@ -133,7 +128,7 @@ public class DataService {
 			break;
 		}
 	}
-	public void incrementIndice() {
+	public void incrementaIndice() {
 		switch(difficolta) {
 		case "Easy":
 			indiceEsercizioPrincipiante++;
@@ -208,16 +203,14 @@ public class DataService {
 		case "Easy":
 			UserSession.currentUser.setDifficultyGame2("Medium");
 			UserSession.currentUser.setLevelGame2(1);
-			eserciziIntermediSbloccati = true;
 			break;
 		case "Medium":
 			UserSession.currentUser.setDifficultyGame2("Hard");
 			UserSession.currentUser.setLevelGame2(1);
-			eserciziAvanzatiSbloccati = true;
 			break;
 		}
 	}
-	public void updateCSVData(int livello) {
+	public void updateDbData(int livello) {
 		switch(difficolta) {
 		case "Easy":
 			UserSession.currentUser.setDifficultyGame2("Easy");
@@ -234,6 +227,33 @@ public class DataService {
 		}
 	}
 	//<------ Funzioni che cambiano il loro comportamento in base alla difficolta attuale
+	
+	//------> Metodi set/get delle variabili
+	public String getDifficolta() {
+		return difficolta;
+	}
+	public void setDifficolta(String nuovaDifficolta) {
+		difficolta = nuovaDifficolta;
+	}
+	public int getIndicePrincipiante() {
+		return indiceEsercizioPrincipiante;
+	}
+	public void resetIndicePrincipiante() {
+		indiceEsercizioPrincipiante = 0;
+	}
+	public int getIndiceIntermedio() {
+		return indiceEsercizioIntermedio;
+	}
+	public void resetIndiceIntermedio() {
+		indiceEsercizioIntermedio = 0;
+	}
+	public int getIndiceAvanzato() {
+		return indiceEsercizioAvanzato;
+	}
+	public void resetIndiceAvanzato() {
+		indiceEsercizioAvanzato = 0;
+	}
+	//<------ Metodi set/get delle variabili
 }
 
 // Classe utilizzata da LinkedHashMap per memorizzare i nomi dei file. Struttura (key: value1, value2)
