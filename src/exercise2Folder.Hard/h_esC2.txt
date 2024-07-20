@@ -1,4 +1,0 @@
-Il codice causa un errore di compilazione perché il metodo displayFuelCapacity() non è definito nella classe Vehicle
-Stampa "Car Speed: 120 km/h" e "Fuel Capacity: 50 liters"
-Stampa "Speed: 120 km/h" e "Fuel Capacity: 50 liters".
-Stampa solo "Fuel Capacity: 50 liters"

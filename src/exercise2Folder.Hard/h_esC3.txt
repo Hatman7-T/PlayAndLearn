@@ -1,4 +1,0 @@
-Stampa "Bark", "Meow", e "Chirp".
-Stampa "Bark", "Meow", e "Tweet".
-Stampa "Bark" e "Meow".
-Stampa "Bark" e "Chirp".

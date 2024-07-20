@@ -1,4 +1,0 @@
-Il codice legge un file riga per riga e stampa ogni riga sulla console.
-Il codice scrive una riga di testo in un file.
-Il codice stampa il contenuto di un array sulla console.
-Il codice crea un nuovo file e scrive dati al suo interno.

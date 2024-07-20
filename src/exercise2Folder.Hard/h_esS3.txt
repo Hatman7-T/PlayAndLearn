@@ -1,1 +1,0 @@
-Il codice usa il polimorfismo per trattare oggetti di tipi diversi (Dog, Cat, Bird) come istanze della stessa interfaccia Animal. Quando si chiama il metodo makeSound() su ciascun oggetto, viene eseguita l'implementazione specifica della classe concreta.
