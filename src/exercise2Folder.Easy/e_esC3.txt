@@ -1,4 +1,0 @@
-La funzione swap non modifica i valori di a e b all'interno del metodo main, quindi la stampa finale è "a: 5, b: 10".
-La funzione swap scambia i valori di a e b e i cambiamenti sono visibili anche fuori dalla funzione.
-La funzione swap scambia i valori di a e b usando il passaggio per riferimento, quindi i valori originali sono cambiati.
-La funzione swap modifica i valori di a e b in modo permanente.

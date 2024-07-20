@@ -1,1 +1,0 @@
-Quando si passa un array a una funzione, si passa un riferimento all'array originale. Pertanto, le modifiche all'interno della funzione swap influenzano gli array originali a e b nel metodo main.

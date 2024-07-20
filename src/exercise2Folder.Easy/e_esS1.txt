@@ -1,1 +1,0 @@
-Il codice somma tutti i numeri, uno ad uno, dell'array in una variabile tramite un ciclo e stampa il risultato.

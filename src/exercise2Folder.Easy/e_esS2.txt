@@ -1,1 +1,0 @@
-Il codice utilizza un ciclo for che inizia con i uguale a 5 e decrementa i di 1 ad ogni iterazione fino a che i è maggiore, e non uguale, di 0. Durante ogni iterazione, stampa il valore corrente di i. Pertanto, il codice stampa i numeri da 5 a 1 in ordine decrescente.

@@ -1,4 +1,0 @@
-Il codice stampa i numeri da 5 a 1 in ordine decrescente.
-Il codice stampa i numeri da 1 a 5 in ordine crescente.
-Il codice stampa i numeri da 0 a 5 in ordine crescente.
-Il codice stampa i numeri da 5 a 0 in ordine decrescente.
