@@ -297,8 +297,6 @@ public class CodeComprehensionGameController extends UserController{
 			mostraSpiegazione(false);
 
 			if(ds.getIndice() >= ds.getMapEsercizi().size()) {	// Serie completata, esce da questa scena
-				ds.sbloccaProssimaSerie();	// Dopo aver completo tutti gli esercizi di un lv di difficolta sblocca il prossimo
-				updateCSV();	// Aggiorna i progressi dell'utente su file
 				switchToScene(event, ds.scene1);	// Va alla scena della scelta della difficolta
 			}else {	// Va al prossimo esercizio
 				resetTentativi();
@@ -332,8 +330,8 @@ public class CodeComprehensionGameController extends UserController{
 					mostraRisultatoNextText();
 					mostraTextConferma(confirmButtonNextText);
 
-					ds.updateDbData(ds.getIndice());	// Aggiorno i dati per il file 
-					updateCSV();						// Salvo le modifiche su file
+					if(ds.updateDbData(ds.getIndice()))	// Aggiorno i dati per il file 
+						updateCSV();						// Salvo le modifiche su file
 					
 					if(ds.getIndice() >= ds.getMapEsercizi().size()) {
 						mostraRisultatoWin();
