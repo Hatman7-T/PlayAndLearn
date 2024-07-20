@@ -61,12 +61,12 @@ public class CodeComprehensionMainController extends UserController{
 		ds.cambiaOrdine();	// Cambia l'ordine dei file casualmente
 
 		// Attivazione / Disattivazione dei pulsanti, che permettono l'utente ad accede alle difficolta, in base ai progressi
-		if(ds.indiceEsercizioPrincipiante == (DataService.N_ESERCIZI_PRINCIPIANTE) || ds.indiceEsercizioIntermedio > 0) {	// Medium Button
+		if(ds.getIndicePrincipiante() == (DataService.N_ESERCIZI_PRINCIPIANTE) || ds.getIndiceIntermedio() > 0) {	// Medium Button
 			intermediateButton.setDisable(false);
 		}else {
 			intermediateButton.setDisable(true);
 		}
-		if(ds.indiceEsercizioIntermedio == (DataService.N_ESERCIZI_INTERMEDIO) || ds.indiceEsercizioAvanzato > 0) {	// Hard Button
+		if(ds.getIndiceIntermedio() == (DataService.N_ESERCIZI_INTERMEDIO) || ds.getIndiceAvanzato() > 0) {	// Hard Button
 			advancedButton.setDisable(false);
 		}else {
 			advancedButton.setDisable(true);
@@ -77,13 +77,9 @@ public class CodeComprehensionMainController extends UserController{
 
 	// Aggiorno gli indicatori con i progressi dell'utente
 	private void setAllProgressIndicator() {	
-		double indice1 = ds.indiceEsercizioPrincipiante;
-		double indice2 = ds.indiceEsercizioIntermedio;
-		double indice3 = ds.indiceEsercizioAvanzato;
-
-		beginnerProgress.setProgress(indice1 / (DataService.N_ESERCIZI_PRINCIPIANTE));
-		intermediateProgress.setProgress(indice2 / (DataService.N_ESERCIZI_INTERMEDIO));
-		advancedProgress.setProgress(indice3 / (DataService.N_ESERCIZI_AVANZATO));
+		beginnerProgress.setProgress((double) ds.getIndicePrincipiante() / (DataService.N_ESERCIZI_PRINCIPIANTE));
+		intermediateProgress.setProgress((double) ds.getIndiceIntermedio() / (DataService.N_ESERCIZI_INTERMEDIO));
+		advancedProgress.setProgress((double) ds.getIndiceAvanzato() / (DataService.N_ESERCIZI_AVANZATO));
 	}
 
 	// Funzione chiamata dai pulsante per andare alla pagina degli esercizi
@@ -93,20 +89,20 @@ public class CodeComprehensionMainController extends UserController{
 
 	@FXML
 	private void beginnerAction(ActionEvent event) throws IOException {
-		ds.indiceEsercizioPrincipiante = 0;
-		DataService.difficolta = "Easy";
+		ds.resetIndicePrincipiante();
+		ds.setDifficolta("Easy");
 		goToExercisePage(event);
 	}
 	@FXML
 	private void intermediateAction(ActionEvent event) throws IOException {
-		ds.indiceEsercizioIntermedio = 0;
-		DataService.difficolta = "Medium";
+		ds.resetIndiceIntermedio();
+		ds.setDifficolta("Medium");
 		goToExercisePage(event);
 	}
 	@FXML
 	private void advancedAction(ActionEvent event) throws IOException {
-		ds.indiceEsercizioAvanzato = 0;
-		DataService.difficolta = "Hard";
+		ds.resetIndiceAvanzato();
+		ds.setDifficolta("Hard");
 		goToExercisePage(event);
 	}
 	@FXML
