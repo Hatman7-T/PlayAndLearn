@@ -1,0 +1,1 @@
+Il codice utilizza BufferedReader per leggere righe da un file e stamparle una per una.

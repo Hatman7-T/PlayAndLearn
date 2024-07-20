@@ -1,0 +1,1 @@
+Quando si passano i parametri a una funzione, si passa una copia dei valori (passaggio per valore). Quindi, le modifiche ai parametri a e b all'interno del metodo swap non influenzano le variabili originali nel metodo main.

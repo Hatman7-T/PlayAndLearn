@@ -1,0 +1,1 @@
+Passando un ArrayList al LinkedHashSet, rimuovi i duplicati ("Apple" viene aggiunto solo una volta) e mantieni l'ordine di inserimento originario della lista.

@@ -1,0 +1,4 @@
+La funzione swap scambia i valori di a e b, i cambiamenti sono visibili anche fuori dalla funzione.
+La funzione swap non modifica i valori di a e b all'interno del metodo main, quindi gli array a e b rimangono invariati.
+La funzione swap scambia solo il primo elemento di a e b, lasciando il resto invariato.
+La funzione swap genera un errore perché non è possibile scambiare elementi di due array in Java.

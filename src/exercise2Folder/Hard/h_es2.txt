@@ -1,0 +1,27 @@
+class Vehicle {
+    int speed;
+    
+    Vehicle(int speed) {
+        this.speed = speed;
+    }
+}
+
+class Car extends Vehicle {
+    int fuelCapacity;
+    
+    Car(int speed, int fuelCapacity) {
+        super(speed);
+        this.fuelCapacity = fuelCapacity;
+    }
+    
+    void displayFuelCapacity() {
+        System.out.println("Fuel Capacity: " + fuelCapacity + " liters");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle v = new Car(120, 50);
+        v.displayFuelCapacity();
+    }
+}

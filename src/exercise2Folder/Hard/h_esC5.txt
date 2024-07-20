@@ -1,0 +1,4 @@
+Il codice legge i valori degli header della risposta HTTP e li scrive in un file, con ogni valore su una nuova riga.
+Il codice legge gli header della risposta HTTP e li scrive in un file, includendo sia le chiavi che i valori, separati da due punti.
+Il codice legge il contenuto di una pagina HTML e lo scrive in un file, senza elaborare gli header della risposta.
+Il codice effettua una richiesta HTTP e stampa solo il codice di stato della risposta in un file.
