@@ -25,9 +25,6 @@ public class DataService {
 
 	protected final String percorsoScene = "/game2Scenes/";
 	protected final String percorsoFile = "./src/exercise2Folder/";
-	//protected final String percorsoFilePrincipiante = "./src/exercise2Folder.Easy/";
-	//protected final String percorsoFileIntermedio = "./src/exercise2Folder.Medium/";
-	//protected final String percorsoFileAvanzato = "./src/exercise2Folder.Hard/";
 
 	protected final String scene0 = "/scenes/UserScene.fxml";
 	protected final String scene1 = percorsoScene+"CodeComprehensionSelectDifficultyScene.fxml";
