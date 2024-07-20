@@ -216,7 +216,7 @@ public class DataService {
 			}
 			break;
 		case "Medium":
-			if(indiceEsercizioAvanzato ==0) {
+			if(indiceEsercizioAvanzato == 0) {
 				UserSession.currentUser.setDifficultyGame2("Medium");
 				UserSession.currentUser.setLevelGame2(livello);
 			}
