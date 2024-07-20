@@ -210,12 +210,16 @@ public class DataService {
 	public void updateDbData(int livello) {
 		switch(difficolta) {
 		case "Easy":
-			UserSession.currentUser.setDifficultyGame2("Easy");
-			UserSession.currentUser.setLevelGame2(livello);
+			if(indiceEsercizioIntermedio == 0 && indiceEsercizioAvanzato ==0) {
+				UserSession.currentUser.setDifficultyGame2("Easy");
+				UserSession.currentUser.setLevelGame2(livello);
+			}
 			break;
 		case "Medium":
-			UserSession.currentUser.setDifficultyGame2("Medium");
-			UserSession.currentUser.setLevelGame2(livello);
+			if(indiceEsercizioAvanzato ==0) {
+				UserSession.currentUser.setDifficultyGame2("Medium");
+				UserSession.currentUser.setLevelGame2(livello);
+			}
 			break;
 		case "Hard":
 			UserSession.currentUser.setDifficultyGame2("Hard");
