@@ -114,13 +114,10 @@ public class GameController extends UserController{
 			Dragboard db = event.getDragboard();
 			boolean success = false;
 			if (db.hasString()) {														//Si controlla che la dragBoard abbia contenga una stringa
-				String text = label.getText();
-				String newText = text.replace("___", db.getString());					//E in quel caso si modifica la label del target
-				label.setText(newText);
 				success = true;
-
+				
 				Label draggedLabel = (Label) event.getGestureSource();
-				draggedLabel.setVisible(false);											//E la label si rende non visibile
+				draggedLabel.setVisible(false);											//In tal caso la answerBox si rende non visibile
 			}
 			event.setDropCompleted(success);
 			event.consume();
